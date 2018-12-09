@@ -12,21 +12,24 @@ songData.forEach((song, i) => {
 
 class App extends Component {
   constructor() {
-  super();
+    super();
 
-  this.state = {
-   songData: songData
-  };
+    this.state = {
+      songData: songData
+    };
+  }
 
-onChangeItem = () => {
-  this.setState({
-    songData.forEach((song, i) => {
-      song.favorite = true;
-    })
-  });
-}
-  songData
-  song.favotite = true;
+  onChangeItem = (id) => {
+    this.setState({
+      songData: this.state.songData.forEach((song, i) => {
+        if(id === i) {
+          song.favorite = true;
+        }
+        console.log(song);
+      })
+    });
+  }
+
 
   render() {
     return (
