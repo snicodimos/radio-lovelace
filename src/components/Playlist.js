@@ -30,10 +30,11 @@ const Playlist = (props) => {
   const trackCount = tracks.length;
   const playtime = calculatePlayTime(tracks);
 
-  const onItemChangeStar = (id) => {
-    const trackID = this.props.id;
-    this.props.callBacktoChangeStar2(trackID);
-  };
+  // const onItemChangeStar = (id) => {
+  //   const trackID = props.id;
+  //   props.callBacktoChangeStar(trackID);
+  //   callBacktoChangeStar={props.onItemChangeStar}
+  // };
 
   const trackElements = tracks.map((track, i) => {
     // We use "spread syntax" here to pass in all the properties of
@@ -42,7 +43,8 @@ const Playlist = (props) => {
       <Track
         key={`${track.title}${track.artist}`}
         {...track}
-        callBacktoChangeStar={this.onItemChangeStar}
+        callBacktoChangeStar={props.onItemChangeStar}
+
         />
     );
   });
