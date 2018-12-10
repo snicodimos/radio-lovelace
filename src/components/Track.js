@@ -5,12 +5,11 @@ import "./styles/Track.css";
 
 // Here we use destructuring to extract the props into separate variables
 // See https://wesbos.com/destructuring-objects/
-const Track = ({id, title, artist, playtime, albumart, favorite}) => {
+const Track = ({id, title, artist, playtime, albumart, favorite, callBacktoChangeStar}) => {
     console.log(favorite);
 
   const onChangeStarItem = () => {
-      const trackID = this.props.id;
-      this.props.callBacktoChangeStar(trackID);
+      callBacktoChangeStar(id);
     };
 
   return (
@@ -21,7 +20,7 @@ const Track = ({id, title, artist, playtime, albumart, favorite}) => {
         type="checkbox"
         className="track--favorite"
         checked={!favorite}
-        onChange={this.onChangeStarItem}
+        onChange={onChangeStarItem}
       />
       <p className="track--artist">{artist}</p>
       <p className="track--playtime">{playtime}</p>
