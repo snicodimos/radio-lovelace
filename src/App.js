@@ -20,16 +20,14 @@ class App extends Component {
   }
 
   onChangeItem = (id) => {
+
+    const tracks = this.state.songData;
+    tracks[id].favorite = !tracks[id].favorite;
+
     this.setState({
-      songData: this.state.songData.forEach((song, i) => {
-        if(id === i) {
-          song.favorite = true;
-        }
-        console.log(song);
-      })
+      songData: tracks
     });
   }
-
 
   render() {
     return (
